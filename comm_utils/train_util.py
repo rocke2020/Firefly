@@ -34,6 +34,7 @@ def get_device(device_id=0):
         device = "cpu"
     elif torch.cuda.is_available():
         gpu_count = torch.cuda.device_count()
+        logger.info('gpu_count %s', gpu_count)
         if gpu_count > device_id:
             device = f"cuda:{device_id}"
         else:
