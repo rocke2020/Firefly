@@ -2,3 +2,4 @@ output
 data_process/**/*.csv
 data_process/**/*.json
 data_process/**/*.jsonl
+runs/
