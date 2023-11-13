@@ -1,7 +1,7 @@
 {
-    "output_dir": "/mnt/nas1/models/llama/quantized_models/llama2-7b-ner-chem_gene-e3s4",
+    "output_dir": "/mnt/nas1/models/llama/quantized_models/llama2-7b-ner-chem_gene-e3s10",
     "model_name_or_path": "/mnt/nas1/models/llama/pretrained_weights/llama2-7b-chat-hf",
-    "train_file": "./data_process/preprocess/ner/chem_gene_with_indexes.jsonl",
+    "train_file": "./data_process/preprocess/ner/chem_gene_with_leading_trailing_words.jsonl",
     "num_train_epochs": 3,
     "per_device_train_batch_size": 8,
     "gradient_accumulation_steps": 2,
@@ -19,7 +19,7 @@
     "gradient_checkpointing": true,
     "disable_tqdm": false,
     "optim": "paged_adamw_32bit",
-    "seed": 4,
+    "seed": 10,
     "fp16": true,
     "report_to": "tensorboard",
     "dataloader_num_workers": 10,

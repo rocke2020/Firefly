@@ -85,7 +85,8 @@ def setup_everything():
     args, training_args = parser.parse_json_file(json_file=train_args_file)
     # 创建输出目录
     if not os.path.exists(training_args.output_dir):
-        os.makedirs(training_args.output_dir)
+        logger.info(f'not os.path.exists {training_args.output_dir}')
+        os.makedirs(training_args.output_dir, exist_ok=True)
     args_file = join(training_args.output_dir, 'train_args.log')
     with open(args_file, 'w', encoding='utf-8') as f:
         f.write(f'args:\n{args}\n\ntraining_args:\n{training_args}\n')
