@@ -23,11 +23,16 @@ for path in root_out.iterdir():
             continue
         event_dir = list(run_dir.iterdir())[0]
         out_dir = out_events_dir / event_dir.name
-        shutil.copytree(event_dir, out_dir, dirs_exist_ok=True, symlinks=True)
+        for file in event_dir.iterdir():
+            if file.name.startswith('events.out.tfevents.'):
+                out_file = out_dir / file.name
+                if not out_file.exists():
+                    os.symlink(file, out_file)
         readme_file = out_dir / f'{path.name}.md'
         with open(readme_file, 'w', encoding='utf-8') as f:
             f.write(f'# {path.name}\n')
         for file in path.iterdir():
             if file.name.endswith(('.log', '.json')):
                 out_file = out_dir / file.name
-                os.symlink(file, out_file)
+                if not out_file.exists():
+                    os.symlink(file, out_file)
