@@ -23,6 +23,7 @@ for path in root_out.iterdir():
             continue
         event_dir = list(run_dir.iterdir())[0]
         out_dir = out_events_dir / event_dir.name
+        out_dir.mkdir(parents=True, exist_ok=True)
         for file in event_dir.iterdir():
             if file.name.startswith('events.out.tfevents.'):
                 out_file = out_dir / file.name

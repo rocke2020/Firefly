@@ -43,7 +43,8 @@ def merge_multi_lora():
     save_root = Path('/mnt/nas1/models/llama/merged_models')
     adapter_names = [
         # 'llama2-7b-ner-chem_gene-e3s6',
-        'llama2-7b-ner-chem_gene3',
+        'llama2-7b-ner-chem_gene-e3s10',
+        'llama2-7b-ner-chem_gene-e3s11',
     ]
     for adapter_name in adapter_names:
         print(f'Processing {adapter_name}')
